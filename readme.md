@@ -14,7 +14,7 @@ Link para o TCC: LINK AQUI ;)
  - Pip3
 ### Installing
 
-#### Rodando localmente
+#### Rodando em ambiente local
 - Baixe ou Clone esse projeto para o seu dispositivo.
 - Tenha certeza que todos os pré-requisitos estão instalados corretamente em sua máquina.
  - Abra o terminal no projeto e crie um `virtual environment`
@@ -27,6 +27,21 @@ Link para o TCC: LINK AQUI ;)
 	 - $ `python back.py`
 	 - A aplicação irá ficar exposta no endpoint: http://127.0.0.1:5000/
 
+## O Projeto
+O principal objetivo do projeto é desenvolver uma aplicação de fácil uso para que diferentes perfis de pessoas consigam extrair informações úteis do aplicativo de troca de mensagens WhatsApp.
+
+ ### Funcionalidades desejadas
+ 
+ - [ ] Autenticar uma conta do WhatsApp através da aplicação
+ - [ ] Listar todos os grupos dessa conta de WhatsApp
+ - [ ] Permitir ao usuário requisitar que a aplicação inicie a coleta de mensagens
+ - [ ] Permitir ao usuário requisitar que a aplicação pause a coleta de mensagens
+ - [ ] Permitir ao usuário que baixe todas as mensagens coletadas em diferentes formatos
+	 - [ ] csv
+	 - [ ] json
+ - [ ] A aplicação deverá rodar num ambiente docker de fácil instalação local
+ - [ ] A aplicação deverá rodar num ambiente docker de fácil instalação remota (Azure; AWS, Google Cloud...)
+
 ## Feito com
 
 * [Flask](https://palletsprojects.com/p/flask/) - The web framework used
@@ -36,7 +51,6 @@ Link para o TCC: LINK AQUI ;)
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
-
 
  ## Contributing
 
