@@ -1,26 +1,26 @@
-name: CI
+# name: CI
 
-on:
-  push:
-    branches: master
+# on:
+#   push:
+#     branches: master
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Started
-      run: echo Change
-    - name: Docker Build & Push
-      uses: mr-smithers-excellent/docker-build-push@v2
-      with:
-        # Name of the Docker image
-        image: wppbot
-        # Tag override for Docker image
-        tag: v0.0.1
-        # Target Docker registry
-        registry: docker.pkg.github.com/lucasrferreira/wppbot-selenium
-        # Location of Dockerfile, if not Dockerfile in root directory
-        username: lucasrferreira
-        # Password for Docker registry
-        password: ${{ secrets.docker_token }}
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v1
+#     - name: Started
+#       run: echo Change
+#     - name: Docker Build & Push
+#       uses: mr-smithers-excellent/docker-build-push@v2
+#       with:
+#         # Name of the Docker image
+#         image: wppbot
+#         # Tag override for Docker image
+#         tag: v0.0.1
+#         # Target Docker registry
+#         registry: docker.pkg.github.com/lucasrferreira/wppbot-selenium
+#         # Location of Dockerfile, if not Dockerfile in root directory
+#         username: lucasrferreira
+#         # Password for Docker registry
+#         password: ${{ secrets.docker_token }}
