@@ -10,8 +10,23 @@ Link para o TCC: LINK AQUI ;)
 ## Getting Started 
 
 ### Pré-requisitos
- - Python3
+ - Python3 >= 3.14
  - Pip3
+ - geckodriver == 0.26
+ - Firefox == 60
+ 
+#### Instalando e configurando o geckodriver
+- Windows
+	- Faça download do drive correspondente ao seu sistema operacional: https://github.com/mozilla/geckodriver/releases
+	- Extraia
+	- Win: Posicione o arquivo `geckodriver` onde desejar e adicione o caminho até ele na variável de ambiente `PATH`.
+- Lunux: (Ref: https://askubuntu.com/a/871077)
+	- Faça download do drive correspondente ao seu sistema operacional: https://github.com/mozilla/geckodriver/releases
+	- `tar -xvzf geckodriver*` (Extração do arquivo baixado)
+	- `chmod +x geckodriver`
+	- `export PATH=$PATH:/[path-to-extracted-file]/.`
+- OSX:
+	- `brew install geckodriver`
 ### Installing
 
 #### Rodando em ambiente local
@@ -23,9 +38,24 @@ Link para o TCC: LINK AQUI ;)
 	- $ `. venv/bin/activate`
  - Instale as dependências usando pip
 	 - $ `pip3 install -r requirements.txt`
+
  - Agora basta rodar a aplicação:
 	 - $ `python back.py`
 	 - A aplicação irá ficar exposta no endpoint: http://127.0.0.1:5000/
+
+#### Rodando em docker local clonando o projeto
+ref: http://containertutorials.com/docker-compose/flask-simple-app.html
+- Baixe ou Clone esse projeto para o seu dispositivo.
+- Certifique-se de ter o docker propriamente instalado.
+- $ `docker build -t wppscrapper:latest .`
+- $ `docker run -d -p 5000:5000 flask-sample-one`
+
+<!-- #### Rodando em docker local usando uma imagem pronta
+ref: http://containertutorials.com/docker-compose/flask-simple-app.html
+- Baixe ou Clone esse projeto para o seu dispositivo.
+- Certifique-se de ter o docker propriamente instalado.
+- $ `docker build -t wppscrapper:latest .`
+- $ `docker run -d -p 5000:5000 flask-sample-one` -->
 
 ## O Projeto
 O principal objetivo do projeto é desenvolver uma aplicação de fácil uso para que diferentes perfis de pessoas consigam extrair informações úteis do aplicativo de troca de mensagens WhatsApp.

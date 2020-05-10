@@ -9,6 +9,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.firefox.options import Options
 from datetime import datetime
 from wpp_message import message
 import time
@@ -17,14 +18,19 @@ from urllib import request
 class WppApi:
     firefox_capabilities = DesiredCapabilities.FIREFOX
     firefox_capabilities['marionette'] = True
-    firefox_capabilities['binary'] = 'driver/geckodriver'
-    browser = webdriver.Firefox(executable_path = 'driver/geckodriver')
+    options = Options()
+    # options.headless = True #Add after implement QRCode and run in docker
+    # firefox_capabilities['binary'] = 'driver/geckodriver'
+    browser = webdriver.Firefox(options=options)
     timeout = 10
 
     def __init__(self, wait):
         self.browser.get("https://web.whatsapp.com/")
+
+        self.browser.save_screenshot('QRCODE.png')
         WebDriverWait(self.browser, wait).until(EC.presence_of_element_located(
-            (By.CSS_SELECTOR, '._2zCfw')))
+            (By.CSS_SELECTOR, '._1FTCC')))
+        
 
     # seleciona um chat
     def get_chat(self, chat_name):
@@ -137,7 +143,7 @@ class WppApi:
 
     def chat_with_unseen_messages(self):
         WebDriverWait(self.browser, self.timeout).until(EC.presence_of_element_located(
-            (By.CSS_SELECTOR, '._2zCfw')))
+            (By.CSS_SELECTOR, '._1FTCC')))
         time.sleep(5)
 
         chat_names= []
@@ -160,7 +166,7 @@ class WppApi:
 
     def get_chat_names(self):
         WebDriverWait(self.browser, self.timeout).until(EC.presence_of_element_located(
-            (By.CSS_SELECTOR, '._2zCfw')))
+            (By.CSS_SELECTOR, '._1FTCC')))
         time.sleep(5)
 
         chat_names= []
@@ -168,9 +174,9 @@ class WppApi:
         size = self.browser.execute_script('return arguments[0].scrollHeight', div_side)
         ini = 0
         while ini + size/10 < size - size/10:
-            chats = self.browser.find_elements_by_css_selector('.X7YrQ')
+            chats = self.browser.find_elements_by_css_selector('._2wP_Y')
             for chat in chats:
-                neme = chat.find_element_by_css_selector('._3H4MS')
+                neme = chat.find_element_by_css_selector('._1wjpf _3NFp9 _3FXB1')
                 chat_name = neme.text
                 if chat_name not in chat_names:
                     chat_names.append(chat_name)
@@ -178,4 +184,3 @@ class WppApi:
             ini = self.browser.execute_script('return arguments[0].scrollTop', div_side)
         self.browser.minimize_window()
         return chat_names
-            
