@@ -1,3 +1,9 @@
+![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/ribeiroferreiralucas/WppScrapper?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ribeiroferreiralucas/wppscrapper/CI?style=flat-square)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/ribeiroferreiralucas/wppscrapper/selenium?style=flat-square)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/ribeiroferreiralucas/wppscrapper/flask?style=flat-square)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ribeiroferreiralucas/wppscrapper?sort=semver&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues-raw/ribeiroferreiralucas/wppscrapper?style=flat-square)
 
 # WppScrapper
 
