@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: none
+    branches: master
 
 jobs:
   build:
@@ -12,15 +12,15 @@ jobs:
     - name: Started
       run: echo Change
     - name: Docker Build & Push
-      uses: mr-smithers-excellent/docker-build-push@v2
+      uses: mr-smithers-excellent/docker-build-push@v3.1
       with:
         # Name of the Docker image
-        image: wppbot
+        image: wppscrapper
         # Tag override for Docker image
         tag: v0.0.1
         # Target Docker registry
-        registry: docker.pkg.github.com/lucasrferreira/wppbot-selenium
+        registry: docker.pkg.github.com/ribeiroferreiralucas/wppscrapper
         # Location of Dockerfile, if not Dockerfile in root directory
-        username: lucasrferreira
+        username: ribeiroferreiralucas
         # Password for Docker registry
         password: ${{ secrets.docker_token }}
