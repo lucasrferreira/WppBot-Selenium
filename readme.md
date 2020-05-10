@@ -10,8 +10,9 @@ Link para o TCC: LINK AQUI ;)
 ## Getting Started 
 
 ### Pré-requisitos
- - Python3 >= 3.14
- - Pip3
+ - python3 >= 3.14
+ - pip3
+ - pipenv
  - geckodriver == 0.26
  - Firefox == 60
  
@@ -32,13 +33,10 @@ Link para o TCC: LINK AQUI ;)
 #### Rodando em ambiente local
 - Baixe ou Clone esse projeto para o seu dispositivo.
 - Tenha certeza que todos os pré-requisitos estão instalados corretamente em sua máquina.
- - Abra o terminal no projeto e crie um `virtual environment`
-	 - $ `python3 -m venv venv`
-- Ative o `environment`
-	- $ `. venv/bin/activate`
- - Instale as dependências usando pip
-	 - $ `pip3 install -r requirements.txt`
-
+ - Instale as dependências usando pipenv
+	 - $ `pipenv install`
+ - Abra o terminal no projeto e crie um `virtual environment` com pipenv
+	 - $ `pipenv shell`
  - Agora basta rodar a aplicação:
 	 - $ `python back.py`
 	 - A aplicação irá ficar exposta no endpoint: http://127.0.0.1:5000/
