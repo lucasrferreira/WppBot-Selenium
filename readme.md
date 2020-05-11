@@ -54,7 +54,7 @@ ref: http://containertutorials.com/docker-compose/flask-simple-app.html
 - Baixe ou Clone esse projeto para o seu dispositivo.
 - Certifique-se de ter o docker propriamente instalado.
 - $ `docker build -t wppscrapper:latest .`
-- $ `docker run -d -p 5000:5000 flask-sample-one`
+- $ `docker run -d -p 5000:5000 wppscrapper`
 
 <!-- #### Rodando em docker local usando uma imagem pronta
 ref: http://containertutorials.com/docker-compose/flask-simple-app.html
