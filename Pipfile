@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 selenium = "*"
 Flask = "==1.1.1"
+APScheduler = "*"
 
 [requires]
 python_version = "3.7"

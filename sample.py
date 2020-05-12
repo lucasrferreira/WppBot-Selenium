@@ -1,38 +1,29 @@
-# from wppbot import WppApi
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver import ActionChains
-from selenium.common.exceptions import NoSuchElementException, ElementNotVisibleException
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.firefox.options import Options
-# wpp = WppApi(60)
-# while True:
-# wpp.send_message('WACAO', ':)')
-# messages = wpp.get_messages_chat("FIFA 🎮", 20)
-# print(len(messages))
-#wpp.join_group('https://chat.whatsapp.com/EbsTIzO3X6W7Svmqcx529w') 
-# for message in messages:
-#     print(message.text)
-# chats = wpp.chat_with_unseen_messages()
-# print(len(chats))
-# print(chats)
+"""
+Demonstrates how to use the background scheduler to schedule a job that executes on 3 second
+intervals.
+"""
 
-firefox_capabilities = DesiredCapabilities.FIREFOX
-firefox_capabilities['marionette'] = True
-options = Options()
-options.headless = True
-# firefox_capabilities['binary'] = 'driver/geckodriver'
-browser = webdriver.Firefox(options=options)
-browser.get("https://web.whatsapp.com/")
+from datetime import datetime
+import time
+import os
 
-# chats = wpp.get_chat_names()
-# print(len(chats))
-# print(chats)
-# wpp.join_group('https://chat.whatsapp.com/EbsTIzO3X6W7Svmqcx529w')
+from apscheduler.schedulers.background import BackgroundScheduler
 
+
+def tick():
+    print('Tick! The time is: %s' % datetime.now())
+
+
+if __name__ == '__main__':
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(tick, 'interval', seconds=3)
+    scheduler.start()
+    print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
+
+    try:
+        # This is here to simulate application activity (which keeps the main thread alive).
+        while True:
+            time.sleep(2)
+    except (KeyboardInterrupt, SystemExit):
+        # Not strictly necessary if daemonic mode is enabled but should be done if possible
+        scheduler.shutdown()

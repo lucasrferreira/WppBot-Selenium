@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
+from apscheduler.schedulers.background import BackgroundScheduler
+import atexit
 
 class Group:
    def __init__(self, group_name, is_on):
@@ -7,6 +9,8 @@ class Group:
    
 
 app = Flask(__name__)
+cron = BackgroundScheduler(daemon=True)
+
 @app.route('/')
 def index():
     return redirect(url_for('get_groups'))
@@ -36,5 +40,13 @@ def startbot():
    data = {'message': chats}
    print(data)
 
+def fetch():
+   print("fetched")
+
+cron.add_job(fetch, 'interval', seconds=1)
+
+
+cron.start()
+atexit.register(lambda: cron.shutdown(wait=False))
 if __name__ == '__main__':
    app.run(debug=True,host='0.0.0.0')
